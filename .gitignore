@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/KOTIT.Employees/.vs/KOTIT.Employees
+/KOTIT.Employees/KOTIT.Employees/bin/Debug/net6.0
+/KOTIT.Employees/KOTIT.Employees/obj
+/KOTIT.Employees/KOTIT.Employees.Domain/bin/Debug/net6.0
+/KOTIT.Employees/KOTIT.Employees.Domain/obj/Debug/net6.0
+/KOTIT.Employees/KOTIT.Employees.Domain/obj
+/KOTIT.Employees/KOTIT.Employees.Infrastructure/bin/Debug/net6.0
+/KOTIT.Employees/KOTIT.Employees.Infrastructure/obj
+/KOTIT.Employees/KOTIT.Employees.UTests/bin/Debug/net6.0
+/KOTIT.Employees/KOTIT.Employees.UTests/obj
