@@ -1,3 +1,7 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using KOTIT.Employees.Application.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+// Autofac module
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder
+    .Host
+    .ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new DIConfigurations()));
 
 var app = builder.Build();
 
