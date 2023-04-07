@@ -12,6 +12,15 @@ public class BaseContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        //Database.EnsureCreated();
+        //if (Database.GetPendingMigrations().Any())
+        //{
+        //    Database.Migrate();
+        //}
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Employees
@@ -33,7 +42,7 @@ public class BaseContext : DbContext
                 .Property(x => x.BirthDate)
                 .IsRequired();
             entity
-                .Property(x=>x.CreatedDate)
+                .Property(x => x.CreatedDate)
                 .HasDefaultValue(DateTime.UtcNow);
             entity
                 .Property(x => x.LastModifiedDate)

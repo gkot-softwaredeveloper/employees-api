@@ -3,7 +3,7 @@ using KOTIT.Employees.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KOTIT.Employees.Application.Controllers;
+namespace KOTIT.Employees.Infrastructure.Host.Controllers;
 
 [ApiController]
 [Route("[controller]")]

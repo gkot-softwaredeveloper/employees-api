@@ -2,7 +2,7 @@
 using KOTIT.Employees.Application.Dtos;
 using KOTIT.Employees.Domain.Entities;
 
-namespace KOTIT.Employees.Application.Configurations;
+namespace KOTIT.Employees.Infrastructure.Host.Configurations;
 
 public class AutoMapperProfile : Profile
 {

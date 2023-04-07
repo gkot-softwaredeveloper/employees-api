@@ -1,6 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using KOTIT.Employees.Application.Configurations;
+using KOTIT.Employees.Infrastructure.DBContexts;
+using KOTIT.Employees.Infrastructure.Host.Configurations;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+builder.Services.AddDbContext<BaseContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeesDb"), options =>
+        {
+            options.MigrationsAssembly(typeof(BaseContext).Assembly.ToString());
+            options.EnableRetryOnFailure(maxRetryCount: 5, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+        }));
 
 // Autofac module
 
