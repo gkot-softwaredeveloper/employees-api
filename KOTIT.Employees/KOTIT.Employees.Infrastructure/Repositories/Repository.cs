@@ -12,6 +12,14 @@ public class Repository<T> : IRepository<T> where T : class, IEntity
     {
         _context = context;
     }
+
+    public async Task<int> AddAsync(T entity)
+    {
+        await _context.Set<T>().AddAsync(entity);
+        await _context.SaveChangesAsync();
+        return entity.Id;
+    }
+
     public async Task<IEnumerable<T>> GetAllAsync()
     {
         return await _context.Set<T>().ToListAsync();
