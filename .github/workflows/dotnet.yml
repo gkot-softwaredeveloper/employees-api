@@ -21,8 +21,8 @@
         with:
           dotnet-version: 6.0.x
       - name: Restore dependencies
-        run: dotnet restore ./KOTIT.Employees.sln
+        run: dotnet restore ./KOTIT.Employees/KOTIT.Employees.sln
       - name: Build
-        run: dotnet build ./KOTIT.Employees.sln --no-restore
+        run: dotnet build ./KOTIT.Employees/KOTIT.Employees.sln --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity normal
