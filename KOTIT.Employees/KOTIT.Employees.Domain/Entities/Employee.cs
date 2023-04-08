@@ -8,5 +8,4 @@ public class Employee : IEntity
     public DateTime BirthDate { get; set; }
     public DateTime CreatedDate { get; set; }
     public DateTime? LastModifiedDate { get; set; }
-
 }

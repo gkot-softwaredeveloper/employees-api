@@ -12,6 +12,5 @@ public class AutoMapperProfile : Profile
             .ReverseMap()
             .ForMember(x => x.CreatedDate, opt => opt.Ignore())
             .ForMember(x => x.LastModifiedDate, opt => opt.Ignore());
-
     }
 }
