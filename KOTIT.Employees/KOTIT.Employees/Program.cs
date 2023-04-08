@@ -3,7 +3,6 @@ using Autofac.Extensions.DependencyInjection;
 using KOTIT.Employees.Infrastructure.DBContexts;
 using KOTIT.Employees.Infrastructure.Host.Configurations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +26,17 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder
     .Host
     .ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new DIConfigurations()));
-
 var app = builder.Build();
 
+// EF Migration process
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BaseContext>();
+    if (db.Database.GetPendingMigrations().Any())
+    {
+        db.Database.Migrate();
+    }
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

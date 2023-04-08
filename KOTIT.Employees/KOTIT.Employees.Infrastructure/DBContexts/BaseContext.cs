@@ -12,15 +12,6 @@ public class BaseContext : DbContext
     {
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        //Database.EnsureCreated();
-        //if (Database.GetPendingMigrations().Any())
-        //{
-        //    Database.Migrate();
-        //}
-    }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Employees
