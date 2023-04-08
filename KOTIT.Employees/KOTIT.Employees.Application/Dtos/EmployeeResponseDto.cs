@@ -1,6 +1,6 @@
 ﻿namespace KOTIT.Employees.Application.Dtos;
 
-public class EmployeeDto
+public class EmployeeResponseDto
 {
     public int Id { get; set; }
     public string FirstName { get; set; } = null!;
